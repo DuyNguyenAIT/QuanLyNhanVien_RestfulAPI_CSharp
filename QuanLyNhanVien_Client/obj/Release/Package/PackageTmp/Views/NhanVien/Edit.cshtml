@@ -1,0 +1,50 @@
+﻿@using QuanLyNhanVien_Client.Models;
+
+@model  NhanVien
+
+    <div class="row bg-title">
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+            <h4 class="page-title">Employee</h4>
+        </div>
+
+        <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+            <a href="@Url.Action("Create","NhanVien")" target="_blank" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Create Employee</a>
+            <a href="@Url.Action("Create","NhanVien_PhongBan")" target="_blank" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Register Account</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="white-box">
+                <h3 class="box-title">
+                    Employees                    
+                </h3>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.HoTen) </th>
+                                <th>@Html.DisplayNameFor(model => model.TenPhongBan) </th>
+                                <th>@Html.DisplayNameFor(model => model.TenChucVu) </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in ViewBag.lstNhanVien_PhongBan)
+                            {
+                            <tr>
+                                <td>@item.HoTen</td>
+                                <td>@item.TenPhongBan</td>
+                                <td>@item.TenChucVu</td>
+
+                                <td>
+                                    @Html.ActionLink("Update", "DepartmentEdit", new { MaNV_PB = item.MaNV_PB, MaNhanVien = item.MaNhanVien, MaPhongBan = item.MaPhongBan, MaChucVu = item.MaChucVu }) |
+                                    @Html.ActionLink("Information", "Details", new { id = item.MaNhanVien }) |
+                                    @Html.ActionLink("Delete", "DeleteEmployeeInDepartment", new { MaNV_PB = item.MaNV_PB, MaNhanVien = item.MaNhanVien, MaPhongBan = item.MaPhongBan, MaChucVu = item.MaChucVu }, new { onClick = "return confirm('Are you sure want to delete?');" })
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table> <a href="#">Check all the sales</a>
+                </div>
+            </div>
+        </div>
+    </div>

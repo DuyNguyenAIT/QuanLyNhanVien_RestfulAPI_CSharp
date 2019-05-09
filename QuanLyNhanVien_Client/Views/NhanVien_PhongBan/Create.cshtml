@@ -1,0 +1,96 @@
+﻿@using QuanLyNhanVien_Client.ViewModel;
+
+@model NhanVien_PhongBanViewModel
+
+<div class="row bg-title">
+    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+        <h4 class="page-title">Register Account</h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="white-box">
+            @using (Html.BeginForm("Create", "NhanVien_PhongBan", FormMethod.Post, htmlAttributes: new { @class = "form-horizontal form-material" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", htmlAttributes: new { @class = "text-danger" })
+
+                @Html.HiddenFor(x => x.nhanvien_phongbans.MaNV_PB);
+
+                <!--ID-->
+                @Html.HiddenFor(x => x.nhanvien_phongbans.MaNhanVien);
+
+                <!--ID-->
+                @Html.HiddenFor(x => x.nhanvien_phongbans.MaPhongBan);
+
+                <!--ID-->
+                @Html.HiddenFor(x => x.nhanvien_phongbans.MaChucVu);
+
+                <!--Employee-->
+                <div class="form-group">
+                    @Html.LabelFor(x => x.nhanvien_phongbans.HoTen, htmlAttributes: new { @class = "col-md-12" })
+                    <div class="col-md-12">
+                        @Html.DropDownList("MaNhanVien", (IEnumerable<SelectListItem>)ViewBag.EmployeeList, "Select Employee", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.nhanvien_phongbans.HoTen, "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <!--Department-->
+                <div class="form-group">
+                    @Html.LabelFor(x => x.nhanvien_phongbans.TenPhongBan, htmlAttributes: new { @class = "col-md-12" })
+                    <div class="col-md-12">
+                        @Html.DropDownList("MaPhongBan", (IEnumerable<SelectListItem>)ViewBag.DepartmentList, "Select Department", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.nhanvien_phongbans.TenPhongBan, "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <!--Position-->
+                <div class="form-group">
+                    @Html.LabelFor(x => x.nhanvien_phongbans.TenChucVu, htmlAttributes: new { @class = "col-md-12" })
+                    <div class="col-md-12">
+                        @Html.DropDownList("MaChucVu", (IEnumerable<SelectListItem>)ViewBag.PositionList, "Select Position", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.nhanvien_phongbans.TenChucVu, "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <!--Username-->
+                <div class="form-group">
+                    @Html.LabelFor(x => x.TenTaiKhoan, htmlAttributes: new { @class = "col-md-12" })
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(x => x.TenTaiKhoan, htmlAttributes: new { @class = "form-control form-control-line", @placeholder = "Username" })
+                        @Html.ValidationMessageFor(x => x.TenTaiKhoan, "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <!--Password-->
+                <div class="form-group">
+                    @Html.LabelFor(x => x.MatKhau, htmlAttributes: new { @class = "col-md-12" })
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(x => x.MatKhau, htmlAttributes: new { @class = "form-control form-control-line", @placeholder = "Password", @type="password" })
+                        @Html.ValidationMessageFor(x => x.MatKhau, "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <!--Repeart Password-->
+                <div class="form-group">
+                    @Html.LabelFor(x => x.RepeatMatKhau, htmlAttributes: new { @class = "col-md-12" })
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(x => x.RepeatMatKhau, htmlAttributes: new { @class = "form-control form-control-line", @placeholder = "Password", @type = "password" })
+                        @Html.ValidationMessageFor(x => x.RepeatMatKhau, "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <!--Button-->
+                <div class="form-group">
+                    <div class="col-md-offset-6 col-md-10">
+                        <input type="submit" value="Register" class="btn btn-success" />
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

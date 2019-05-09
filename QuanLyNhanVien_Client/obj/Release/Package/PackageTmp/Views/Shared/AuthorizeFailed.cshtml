@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Authorize Failed</title>
+</head>
+<body>
+    <hgroup>
+        <h1 style="text-align:center; vertical-align:central; line-height:20">YOU CANNOT ACCESS THIS PAGE!</h1>
+    </hgroup>
+</body>
+</html>
+
+<script>
+    window.setTimeout(function () {
+        window.location.href = '@Url.Action("Index","Home")';
+    }, 1000);
+</script>

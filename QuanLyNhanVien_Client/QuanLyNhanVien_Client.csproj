@@ -1,0 +1,943 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{28878852-7057-4137-944A-D7056938EA28}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QuanLyNhanVien_Client</RootNamespace>
+    <AssemblyName>QuanLyNhanVien_Client</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.2</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.2</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Diagnostics.DiagnosticSource">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AES256Encryption\EncryptionLibrary.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Authorize\AuthorizePositionAttribute.cs" />
+    <Compile Include="Controllers\ChucVuController.cs" />
+    <Compile Include="Controllers\ComingSoonController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NhanVienController.cs" />
+    <Compile Include="Controllers\NhanVien_PhongBanController.cs" />
+    <Compile Include="Controllers\PhongBanController.cs" />
+    <Compile Include="Controllers\TaiKhoanController.cs" />
+    <Compile Include="CustomAuthorizeAttribute.cs" />
+    <Compile Include="Filter\ValidateSessionAttribute.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ChucVu.cs" />
+    <Compile Include="Models\ChucVuClient.cs" />
+    <Compile Include="Models\NhanVien.cs" />
+    <Compile Include="Models\NhanVienClient.cs" />
+    <Compile Include="Models\NhanVien_PhongBan.cs" />
+    <Compile Include="Models\NhanVien_PhongBanClient.cs" />
+    <Compile Include="Models\PhongBan.cs" />
+    <Compile Include="Models\PhongBanClient.cs" />
+    <Compile Include="ViewModel\ChucVuViewModel.cs" />
+    <Compile Include="ViewModel\NhanVienViewModel.cs" />
+    <Compile Include="ViewModel\NhanVien_PhongBanViewModel.cs" />
+    <Compile Include="ViewModel\PhongBanViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Design\bootstrap\dist\css\bootstrap-theme.css" />
+    <Content Include="Design\bootstrap\dist\css\bootstrap-theme.min.css" />
+    <Content Include="Design\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="Design\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="Design\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Design\bootstrap\dist\js\bootstrap.js" />
+    <Content Include="Design\bootstrap\dist\js\bootstrap.min.js" />
+    <Content Include="Design\bootstrap\dist\js\npm.js" />
+    <Content Include="Design\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Design\bootstrap\Gruntfile.js" />
+    <Content Include="Design\bootstrap\grunt\bs-commonjs-generator.js" />
+    <Content Include="Design\bootstrap\grunt\bs-glyphicons-data-generator.js" />
+    <Content Include="Design\bootstrap\grunt\bs-lessdoc-parser.js" />
+    <Content Include="Design\bootstrap\grunt\bs-raw-files-generator.js" />
+    <Content Include="Design\bootstrap\js\affix.js" />
+    <Content Include="Design\bootstrap\js\alert.js" />
+    <Content Include="Design\bootstrap\js\button.js" />
+    <Content Include="Design\bootstrap\js\carousel.js" />
+    <Content Include="Design\bootstrap\js\collapse.js" />
+    <Content Include="Design\bootstrap\js\dropdown.js" />
+    <Content Include="Design\bootstrap\js\modal.js" />
+    <Content Include="Design\bootstrap\js\popover.js" />
+    <Content Include="Design\bootstrap\js\scrollspy.js" />
+    <Content Include="Design\bootstrap\js\tab.js" />
+    <Content Include="Design\bootstrap\js\tooltip.js" />
+    <Content Include="Design\bootstrap\js\transition.js" />
+    <Content Include="Design\comingsoon\css\main.css" />
+    <Content Include="Design\comingsoon\css\util.css" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="Design\comingsoon\fonts\Lato\OFL.txt" />
+    <Content Include="Design\comingsoon\images\bg01.jpg" />
+    <Content Include="Design\comingsoon\images\icons\logo.png" />
+    <Content Include="Design\comingsoon\images\icons\favicon.ico" />
+    <Content Include="Design\comingsoon\images\icons\video-16-9.jpg" />
+    <Content Include="Design\comingsoon\js\main.js" />
+    <Content Include="Design\comingsoon\vendor\animate\animate.css" />
+    <Content Include="Design\comingsoon\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Design\comingsoon\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Design\comingsoon\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Design\comingsoon\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Design\comingsoon\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Design\comingsoon\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Design\comingsoon\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Design\comingsoon\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Design\comingsoon\vendor\bootstrap\js\popper.js" />
+    <Content Include="Design\comingsoon\vendor\bootstrap\js\popper.min.js" />
+    <Content Include="Design\comingsoon\vendor\bootstrap\js\tooltip.js" />
+    <Content Include="Design\comingsoon\vendor\countdowntime\countdowntime.js" />
+    <Content Include="Design\comingsoon\vendor\countdowntime\moment-timezone-with-data.min.js" />
+    <Content Include="Design\comingsoon\vendor\countdowntime\moment-timezone.min.js" />
+    <Content Include="Design\comingsoon\vendor\countdowntime\moment.min.js" />
+    <Content Include="Design\comingsoon\vendor\jquery\jquery-3.2.1.min.js" />
+    <Content Include="Design\comingsoon\vendor\select2\select2.css" />
+    <Content Include="Design\comingsoon\vendor\select2\select2.js" />
+    <Content Include="Design\comingsoon\vendor\select2\select2.min.css" />
+    <Content Include="Design\comingsoon\vendor\select2\select2.min.js" />
+    <Content Include="Design\comingsoon\vendor\tilt\tilt.jquery.min.js" />
+    <Content Include="Design\css\animate.css" />
+    <Content Include="Design\css\colors\blue-dark.css" />
+    <Content Include="Design\css\colors\blue.css" />
+    <Content Include="Design\css\colors\default-dark.css" />
+    <Content Include="Design\css\colors\default.css" />
+    <Content Include="Design\css\colors\gray-dark.css" />
+    <Content Include="Design\css\colors\gray.css" />
+    <Content Include="Design\css\colors\green-dark.css" />
+    <Content Include="Design\css\colors\green.css" />
+    <Content Include="Design\css\colors\megna-dark.css" />
+    <Content Include="Design\css\colors\megna.css" />
+    <Content Include="Design\css\colors\purple-dark.css" />
+    <Content Include="Design\css\colors\purple.css" />
+    <Content Include="Design\css\demo.css" />
+    <Content Include="Design\css\footer-distributed-with-address-and-phones.css" />
+    <Content Include="Design\css\spinners.css" />
+    <Content Include="Design\css\style.css" />
+    <Content Include="Design\js\custom.js" />
+    <Content Include="Design\js\custom.min.js" />
+    <Content Include="Design\js\dashboard1.js" />
+    <Content Include="Design\js\jquery.slimscroll.js" />
+    <Content Include="Design\js\morris-data.js" />
+    <Content Include="Design\js\toastr.js" />
+    <Content Include="Design\js\waves.js" />
+    <Content Include="Design\less\icons\font-awesome\css\font-awesome.css" />
+    <Content Include="Design\less\icons\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Design\less\icons\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Design\less\icons\font-awesome\HELP-US-OUT.txt" />
+    <Content Include="Design\less\spinners.css" />
+    <Content Include="Design\login\css\style.css" />
+    <Content Include="Design\login\fonts\material-icon\css\material-design-iconic-font.css" />
+    <Content Include="Design\login\fonts\material-icon\css\material-design-iconic-font.min.css" />
+    <Content Include="Design\login\fonts\material-icon\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-300.svg" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-300italic.svg" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-500.svg" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-500italic.svg" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-600.svg" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-700.svg" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-700italic.svg" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-800.svg" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-800italic.svg" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-900.svg" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-italic.svg" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-regular.svg" />
+    <Content Include="Design\login\fonts\poppins\roboto-condensed-v16-latin-700.svg" />
+    <Content Include="Design\login\fonts\poppins\roboto-condensed-v16-latin-700italic.svg" />
+    <Content Include="Design\login\fonts\poppins\roboto-condensed-v16-latin-italic.svg" />
+    <Content Include="Design\login\fonts\poppins\roboto-condensed-v16-latin-regular.svg" />
+    <Content Include="Design\login\images\10500055065.png" />
+    <Content Include="Design\login\images\aitlogo.png" />
+    <Content Include="Design\login\images\signin-image.jpg" />
+    <Content Include="Design\login\images\signup-image.jpg" />
+    <Content Include="Design\login\js\main.js" />
+    <Content Include="Design\login\vendor\jquery\jquery-ui.min.js" />
+    <Content Include="Design\login\vendor\jquery\jquery.min.js" />
+    <Content Include="Design\notfound\css\style.css" />
+    <Content Include="Design\plugins\bower_components\counterup\jquery.counterup.min.js" />
+    <Content Include="Design\plugins\bower_components\gmaps\gmaps.js" />
+    <Content Include="Design\plugins\bower_components\gmaps\gmaps.min.js" />
+    <Content Include="Design\plugins\bower_components\gmaps\jquery.gmaps.js" />
+    <Content Include="Design\plugins\bower_components\gmaps\lib\gmaps.controls.js" />
+    <Content Include="Design\plugins\bower_components\gmaps\lib\gmaps.core.js" />
+    <Content Include="Design\plugins\bower_components\gmaps\lib\gmaps.events.js" />
+    <Content Include="Design\plugins\bower_components\gmaps\lib\gmaps.geofences.js" />
+    <Content Include="Design\plugins\bower_components\gmaps\lib\gmaps.geometry.js" />
+    <Content Include="Design\plugins\bower_components\gmaps\lib\gmaps.layers.js" />
+    <Content Include="Design\plugins\bower_components\gmaps\lib\gmaps.map_types.js" />
+    <Content Include="Design\plugins\bower_components\gmaps\lib\gmaps.markers.js" />
+    <Content Include="Design\plugins\bower_components\gmaps\lib\gmaps.native_extensions.js" />
+    <Content Include="Design\plugins\bower_components\gmaps\lib\gmaps.overlays.js" />
+    <Content Include="Design\plugins\bower_components\gmaps\lib\gmaps.routes.js" />
+    <Content Include="Design\plugins\bower_components\gmaps\lib\gmaps.static.js" />
+    <Content Include="Design\plugins\bower_components\gmaps\lib\gmaps.streetview.js" />
+    <Content Include="Design\plugins\bower_components\gmaps\lib\gmaps.styles.js" />
+    <Content Include="Design\plugins\bower_components\gmaps\lib\gmaps.utils.js" />
+    <Content Include="Design\plugins\bower_components\jquery\dist\jquery.js" />
+    <Content Include="Design\plugins\bower_components\jquery\dist\jquery.min.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\ajax.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\ajax\jsonp.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\ajax\load.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\ajax\parseJSON.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\ajax\parseXML.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\ajax\script.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\ajax\var\nonce.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\ajax\var\rquery.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\ajax\xhr.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\attributes.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\attributes\attr.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\attributes\classes.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\attributes\prop.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\attributes\support.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\attributes\val.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\callbacks.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\core.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\core\access.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\core\init.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\core\parseHTML.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\core\ready.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\core\var\rsingleTag.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\css.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\css\addGetHookIf.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\css\curCSS.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\css\defaultDisplay.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\css\hiddenVisibleSelectors.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\css\support.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\css\swap.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\css\var\cssExpand.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\css\var\getStyles.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\css\var\isHidden.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\css\var\rmargin.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\css\var\rnumnonpx.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\data.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\data\accepts.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\data\Data.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\data\var\data_priv.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\data\var\data_user.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\deferred.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\deprecated.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\dimensions.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\effects.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\effects\animatedSelector.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\effects\Tween.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\event.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\event\ajax.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\event\alias.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\event\support.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\exports\amd.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\exports\global.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\intro.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\jquery.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\manipulation.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\manipulation\support.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\manipulation\var\rcheckableType.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\manipulation\_evalUrl.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\offset.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\outro.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\queue.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\queue\delay.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\selector-native.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\selector-sizzle.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\selector.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\serialize.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\sizzle\dist\sizzle.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\sizzle\dist\sizzle.min.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\traversing.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\traversing\findFilter.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\traversing\var\rneedsContext.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\var\arr.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\var\class2type.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\var\concat.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\var\hasOwn.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\var\indexOf.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\var\pnum.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\var\push.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\var\rnotwhite.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\var\slice.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\var\strundefined.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\var\support.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\var\toString.js" />
+    <Content Include="Design\plugins\bower_components\jquery\src\wrap.js" />
+    <Content Include="Design\plugins\bower_components\morrisjs\examples\area-as-line.html" />
+    <Content Include="Design\plugins\bower_components\morrisjs\examples\area.html" />
+    <Content Include="Design\plugins\bower_components\morrisjs\examples\bar-colors.html" />
+    <Content Include="Design\plugins\bower_components\morrisjs\examples\bar-no-axes.html" />
+    <Content Include="Design\plugins\bower_components\morrisjs\examples\bar.html" />
+    <Content Include="Design\plugins\bower_components\morrisjs\examples\days.html" />
+    <Content Include="Design\plugins\bower_components\morrisjs\examples\decimal-custom-hover.html" />
+    <Content Include="Design\plugins\bower_components\morrisjs\examples\diagonal-xlabels-bar.html" />
+    <Content Include="Design\plugins\bower_components\morrisjs\examples\diagonal-xlabels.html" />
+    <Content Include="Design\plugins\bower_components\morrisjs\examples\donut-colors.html" />
+    <Content Include="Design\plugins\bower_components\morrisjs\examples\donut-formatter.html" />
+    <Content Include="Design\plugins\bower_components\morrisjs\examples\donut.html" />
+    <Content Include="Design\plugins\bower_components\morrisjs\examples\dst.html" />
+    <Content Include="Design\plugins\bower_components\morrisjs\examples\events.html" />
+    <Content Include="Design\plugins\bower_components\morrisjs\examples\goals.html" />
+    <Content Include="Design\plugins\bower_components\morrisjs\examples\lib\example.css" />
+    <Content Include="Design\plugins\bower_components\morrisjs\examples\lib\example.js" />
+    <Content Include="Design\plugins\bower_components\morrisjs\examples\months-no-smooth.html" />
+    <Content Include="Design\plugins\bower_components\morrisjs\examples\negative.html" />
+    <Content Include="Design\plugins\bower_components\morrisjs\examples\no-grid.html" />
+    <Content Include="Design\plugins\bower_components\morrisjs\examples\non-continuous.html" />
+    <Content Include="Design\plugins\bower_components\morrisjs\examples\non-date.html" />
+    <Content Include="Design\plugins\bower_components\morrisjs\examples\quarters.html" />
+    <Content Include="Design\plugins\bower_components\morrisjs\examples\resize.html" />
+    <Content Include="Design\plugins\bower_components\morrisjs\examples\stacked_bars.html" />
+    <Content Include="Design\plugins\bower_components\morrisjs\examples\timestamps.html" />
+    <Content Include="Design\plugins\bower_components\morrisjs\examples\updating.html" />
+    <Content Include="Design\plugins\bower_components\morrisjs\examples\weeks.html" />
+    <Content Include="Design\plugins\bower_components\morrisjs\examples\years.html" />
+    <Content Include="Design\plugins\bower_components\morrisjs\examples\_template.html" />
+    <Content Include="Design\plugins\bower_components\morrisjs\Gruntfile.js" />
+    <Content Include="Design\plugins\bower_components\morrisjs\morris.css" />
+    <Content Include="Design\plugins\bower_components\morrisjs\morris.js" />
+    <Content Include="Design\plugins\bower_components\morrisjs\morris.min.js" />
+    <Content Include="Design\plugins\bower_components\morrisjs\spec\specs.html" />
+    <Content Include="Design\plugins\bower_components\morrisjs\spec\viz\examples.js" />
+    <Content Include="Design\plugins\bower_components\morrisjs\spec\viz\exemplary\area0.png" />
+    <Content Include="Design\plugins\bower_components\morrisjs\spec\viz\exemplary\bar0.png" />
+    <Content Include="Design\plugins\bower_components\morrisjs\spec\viz\exemplary\line0.png" />
+    <Content Include="Design\plugins\bower_components\morrisjs\spec\viz\exemplary\stacked_bar0.png" />
+    <Content Include="Design\plugins\bower_components\morrisjs\spec\viz\test.html" />
+    <Content Include="Design\plugins\bower_components\morrisjs\spec\viz\visual_specs.js" />
+    <Content Include="Design\plugins\bower_components\raphael\dev\amdDev.js" />
+    <Content Include="Design\plugins\bower_components\raphael\dev\index.js" />
+    <Content Include="Design\plugins\bower_components\raphael\dev\require.js" />
+    <Content Include="Design\plugins\bower_components\raphael\license.txt" />
+    <Content Include="Design\plugins\bower_components\raphael\raphael-min.js" />
+    <Content Include="Design\plugins\bower_components\raphael\raphael.js" />
+    <Content Include="Design\plugins\bower_components\sidebar-nav\dist\sidebar-nav.css" />
+    <Content Include="Design\plugins\bower_components\sidebar-nav\dist\sidebar-nav.js" />
+    <Content Include="Design\plugins\bower_components\sidebar-nav\dist\sidebar-nav.min.css" />
+    <Content Include="Design\plugins\bower_components\sidebar-nav\dist\sidebar-nav.min.js" />
+    <Content Include="Design\plugins\bower_components\sidebar-nav\Gruntfile.js" />
+    <Content Include="Design\plugins\bower_components\sidebar-nav\src\metisMenu.css" />
+    <Content Include="Design\plugins\bower_components\sidebar-nav\src\metisMenu.js" />
+    <Content Include="Design\plugins\bower_components\toast-master\css\jquery.toast.css" />
+    <Content Include="Design\plugins\bower_components\toast-master\js\jquery.toast.js" />
+    <Content Include="Design\plugins\bower_components\waypoints\lib\jquery.waypoints.js" />
+    <Content Include="Design\plugins\bower_components\waypoints\lib\jquery.waypoints.min.js" />
+    <Content Include="Design\plugins\bower_components\waypoints\lib\noframework.waypoints.js" />
+    <Content Include="Design\plugins\bower_components\waypoints\lib\noframework.waypoints.min.js" />
+    <Content Include="Design\plugins\bower_components\waypoints\lib\shortcuts\infinite.js" />
+    <Content Include="Design\plugins\bower_components\waypoints\lib\shortcuts\infinite.min.js" />
+    <Content Include="Design\plugins\bower_components\waypoints\lib\shortcuts\inview.js" />
+    <Content Include="Design\plugins\bower_components\waypoints\lib\shortcuts\inview.min.js" />
+    <Content Include="Design\plugins\bower_components\waypoints\lib\shortcuts\sticky.js" />
+    <Content Include="Design\plugins\bower_components\waypoints\lib\shortcuts\sticky.min.js" />
+    <Content Include="Design\plugins\bower_components\waypoints\lib\waypoints.debug.js" />
+    <Content Include="Design\plugins\bower_components\waypoints\lib\zepto.waypoints.js" />
+    <Content Include="Design\plugins\bower_components\waypoints\lib\zepto.waypoints.min.js" />
+    <Content Include="Design\plugins\images\131155logo.png" />
+    <Content Include="Design\plugins\images\large\hrm-hero-1200.png" />
+    <Content Include="Design\plugins\images\large\topBanner.jpg" />
+    <Content Include="Design\plugins\images\users\img12.png" />
+    <Content Include="Design\plugins\images\users\user.png" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Design\bootstrap\CHANGELOG.md" />
+    <Content Include="Design\bootstrap\dist\css\bootstrap-theme.css.map" />
+    <Content Include="Design\bootstrap\dist\css\bootstrap-theme.min.css.map" />
+    <Content Include="Design\bootstrap\dist\css\bootstrap.css.map" />
+    <Content Include="Design\bootstrap\dist\css\bootstrap.min.css.map" />
+    <Content Include="Design\bootstrap\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Design\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Design\bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Design\bootstrap\dist\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Design\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Design\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Design\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Design\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Design\bootstrap\grunt\.jshintrc" />
+    <Content Include="Design\bootstrap\grunt\configBridge.json" />
+    <Content Include="Design\bootstrap\grunt\sauce_browsers.yml" />
+    <Content Include="Design\bootstrap\less\alerts.less" />
+    <Content Include="Design\bootstrap\less\badges.less" />
+    <Content Include="Design\bootstrap\less\bootstrap.less" />
+    <Content Include="Design\bootstrap\less\breadcrumbs.less" />
+    <Content Include="Design\bootstrap\less\button-groups.less" />
+    <Content Include="Design\bootstrap\less\buttons.less" />
+    <Content Include="Design\bootstrap\less\carousel.less" />
+    <Content Include="Design\bootstrap\less\close.less" />
+    <Content Include="Design\bootstrap\less\code.less" />
+    <Content Include="Design\bootstrap\less\component-animations.less" />
+    <Content Include="Design\bootstrap\less\dropdowns.less" />
+    <Content Include="Design\bootstrap\less\forms.less" />
+    <Content Include="Design\bootstrap\less\glyphicons.less" />
+    <Content Include="Design\bootstrap\less\grid.less" />
+    <Content Include="Design\bootstrap\less\input-groups.less" />
+    <Content Include="Design\bootstrap\less\jumbotron.less" />
+    <Content Include="Design\bootstrap\less\labels.less" />
+    <Content Include="Design\bootstrap\less\list-group.less" />
+    <Content Include="Design\bootstrap\less\media.less" />
+    <Content Include="Design\bootstrap\less\mixins.less" />
+    <Content Include="Design\bootstrap\less\mixins\alerts.less" />
+    <Content Include="Design\bootstrap\less\mixins\background-variant.less" />
+    <Content Include="Design\bootstrap\less\mixins\border-radius.less" />
+    <Content Include="Design\bootstrap\less\mixins\buttons.less" />
+    <Content Include="Design\bootstrap\less\mixins\center-block.less" />
+    <Content Include="Design\bootstrap\less\mixins\clearfix.less" />
+    <Content Include="Design\bootstrap\less\mixins\forms.less" />
+    <Content Include="Design\bootstrap\less\mixins\gradients.less" />
+    <Content Include="Design\bootstrap\less\mixins\grid-framework.less" />
+    <Content Include="Design\bootstrap\less\mixins\grid.less" />
+    <Content Include="Design\bootstrap\less\mixins\hide-text.less" />
+    <Content Include="Design\bootstrap\less\mixins\image.less" />
+    <Content Include="Design\bootstrap\less\mixins\labels.less" />
+    <Content Include="Design\bootstrap\less\mixins\list-group.less" />
+    <Content Include="Design\bootstrap\less\mixins\nav-divider.less" />
+    <Content Include="Design\bootstrap\less\mixins\nav-vertical-align.less" />
+    <Content Include="Design\bootstrap\less\mixins\opacity.less" />
+    <Content Include="Design\bootstrap\less\mixins\pagination.less" />
+    <Content Include="Design\bootstrap\less\mixins\panels.less" />
+    <Content Include="Design\bootstrap\less\mixins\progress-bar.less" />
+    <Content Include="Design\bootstrap\less\mixins\reset-filter.less" />
+    <Content Include="Design\bootstrap\less\mixins\reset-text.less" />
+    <Content Include="Design\bootstrap\less\mixins\resize.less" />
+    <Content Include="Design\bootstrap\less\mixins\responsive-visibility.less" />
+    <Content Include="Design\bootstrap\less\mixins\size.less" />
+    <Content Include="Design\bootstrap\less\mixins\tab-focus.less" />
+    <Content Include="Design\bootstrap\less\mixins\table-row.less" />
+    <Content Include="Design\bootstrap\less\mixins\text-emphasis.less" />
+    <Content Include="Design\bootstrap\less\mixins\text-overflow.less" />
+    <Content Include="Design\bootstrap\less\mixins\vendor-prefixes.less" />
+    <Content Include="Design\bootstrap\less\modals.less" />
+    <Content Include="Design\bootstrap\less\navbar.less" />
+    <Content Include="Design\bootstrap\less\navs.less" />
+    <Content Include="Design\bootstrap\less\normalize.less" />
+    <Content Include="Design\bootstrap\less\pager.less" />
+    <Content Include="Design\bootstrap\less\pagination.less" />
+    <Content Include="Design\bootstrap\less\panels.less" />
+    <Content Include="Design\bootstrap\less\popovers.less" />
+    <Content Include="Design\bootstrap\less\print.less" />
+    <Content Include="Design\bootstrap\less\progress-bars.less" />
+    <Content Include="Design\bootstrap\less\responsive-embed.less" />
+    <Content Include="Design\bootstrap\less\responsive-utilities.less" />
+    <Content Include="Design\bootstrap\less\scaffolding.less" />
+    <Content Include="Design\bootstrap\less\tables.less" />
+    <Content Include="Design\bootstrap\less\theme.less" />
+    <Content Include="Design\bootstrap\less\thumbnails.less" />
+    <Content Include="Design\bootstrap\less\tooltip.less" />
+    <Content Include="Design\bootstrap\less\type.less" />
+    <Content Include="Design\bootstrap\less\utilities.less" />
+    <Content Include="Design\bootstrap\less\variables.less" />
+    <Content Include="Design\bootstrap\less\wells.less" />
+    <Content Include="Design\bootstrap\LICENSE" />
+    <Content Include="Design\bootstrap\package.json" />
+    <Content Include="Design\bootstrap\README.md" />
+    <Content Include="Design\less\colors\blue-dark.less" />
+    <Content Include="Design\less\eliteadmin.less" />
+    <Content Include="Design\less\icons\font-awesome\.bower.json" />
+    <Content Include="Design\less\icons\font-awesome\.gitignore" />
+    <Content Include="Design\less\icons\font-awesome\.npmignore" />
+    <Content Include="Design\less\icons\font-awesome\bower.json" />
+    <Content Include="Design\less\icons\font-awesome\fonts\fontawesome-webfont-old.ttf" />
+    <Content Include="Design\less\icons\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Design\less\icons\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Design\less\icons\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Design\less\icons\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Design\less\icons\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Design\less\icons\font-awesome\less\animated.less" />
+    <Content Include="Design\less\icons\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Design\less\icons\font-awesome\less\core.less" />
+    <Content Include="Design\less\icons\font-awesome\less\extras.less" />
+    <Content Include="Design\less\icons\font-awesome\less\fixed-width.less" />
+    <Content Include="Design\less\icons\font-awesome\less\font-awesome.less" />
+    <Content Include="Design\less\icons\font-awesome\less\icons.less" />
+    <Content Include="Design\less\icons\font-awesome\less\larger.less" />
+    <Content Include="Design\less\icons\font-awesome\less\list.less" />
+    <Content Include="Design\less\icons\font-awesome\less\mixins.less" />
+    <Content Include="Design\less\icons\font-awesome\less\path.less" />
+    <Content Include="Design\less\icons\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Design\less\icons\font-awesome\less\spinning.less" />
+    <Content Include="Design\less\icons\font-awesome\less\stacked.less" />
+    <Content Include="Design\less\icons\font-awesome\less\variables.less" />
+    <Content Include="Design\less\icons\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Design\less\icons\font-awesome\scss\_animated.scss" />
+    <Content Include="Design\less\icons\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Design\less\icons\font-awesome\scss\_core.scss" />
+    <Content Include="Design\less\icons\font-awesome\scss\_extras.scss" />
+    <Content Include="Design\less\icons\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Design\less\icons\font-awesome\scss\_icons.scss" />
+    <Content Include="Design\less\icons\font-awesome\scss\_larger.scss" />
+    <Content Include="Design\less\icons\font-awesome\scss\_list.scss" />
+    <Content Include="Design\less\icons\font-awesome\scss\_mixins.scss" />
+    <Content Include="Design\less\icons\font-awesome\scss\_path.scss" />
+    <Content Include="Design\less\icons\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Design\less\icons\font-awesome\scss\_spinning.scss" />
+    <Content Include="Design\less\icons\font-awesome\scss\_stacked.scss" />
+    <Content Include="Design\less\icons\font-awesome\scss\_variables.scss" />
+    <Content Include="Design\less\pages.less" />
+    <Content Include="Design\less\responsive.less" />
+    <Content Include="Design\less\sidebar-nav.less" />
+    <Content Include="Design\less\style.less" />
+    <Content Include="Design\less\variables.less" />
+    <Content Include="Design\less\widgets.less" />
+    <Content Include="Design\plugins\bower_components\gmaps\gmaps.min.js.map" />
+    <Content Include="Design\plugins\bower_components\jquery\.bower.json" />
+    <Content Include="Design\plugins\bower_components\jquery\bower.json" />
+    <Content Include="Design\plugins\bower_components\jquery\dist\jquery.min.map" />
+    <Content Include="Design\plugins\bower_components\jquery\src\sizzle\dist\sizzle.min.map" />
+    <Content Include="Design\plugins\bower_components\morrisjs\.bower.json" />
+    <Content Include="Design\plugins\bower_components\morrisjs\.gitignore" />
+    <Content Include="Design\plugins\bower_components\morrisjs\.travis.yml" />
+    <Content Include="Design\plugins\bower_components\morrisjs\bower.json" />
+    <Content Include="Design\plugins\bower_components\morrisjs\bower.travis.json" />
+    <Content Include="Design\plugins\bower_components\morrisjs\less\morris.core.less" />
+    <Content Include="Design\plugins\bower_components\morrisjs\lib\morris.area.coffee" />
+    <Content Include="Design\plugins\bower_components\morrisjs\lib\morris.bar.coffee" />
+    <Content Include="Design\plugins\bower_components\morrisjs\lib\morris.coffee" />
+    <Content Include="Design\plugins\bower_components\morrisjs\lib\morris.donut.coffee" />
+    <Content Include="Design\plugins\bower_components\morrisjs\lib\morris.grid.coffee" />
+    <Content Include="Design\plugins\bower_components\morrisjs\lib\morris.hover.coffee" />
+    <Content Include="Design\plugins\bower_components\morrisjs\lib\morris.line.coffee" />
+    <Content Include="Design\plugins\bower_components\morrisjs\package.json" />
+    <Content Include="Design\plugins\bower_components\morrisjs\README.md" />
+    <Content Include="Design\plugins\bower_components\morrisjs\spec\lib\area\area_spec.coffee" />
+    <Content Include="Design\plugins\bower_components\morrisjs\spec\lib\bar\bar_spec.coffee" />
+    <Content Include="Design\plugins\bower_components\morrisjs\spec\lib\bar\colours.coffee" />
+    <Content Include="Design\plugins\bower_components\morrisjs\spec\lib\commas_spec.coffee" />
+    <Content Include="Design\plugins\bower_components\morrisjs\spec\lib\donut\donut_spec.coffee" />
+    <Content Include="Design\plugins\bower_components\morrisjs\spec\lib\grid\auto_grid_lines_spec.coffee" />
+    <Content Include="Design\plugins\bower_components\morrisjs\spec\lib\grid\set_data_spec.coffee" />
+    <Content Include="Design\plugins\bower_components\morrisjs\spec\lib\grid\y_label_format_spec.coffee" />
+    <Content Include="Design\plugins\bower_components\morrisjs\spec\lib\hover_spec.coffee" />
+    <Content Include="Design\plugins\bower_components\morrisjs\spec\lib\label_series_spec.coffee" />
+    <Content Include="Design\plugins\bower_components\morrisjs\spec\lib\line\line_spec.coffee" />
+    <Content Include="Design\plugins\bower_components\morrisjs\spec\lib\pad_spec.coffee" />
+    <Content Include="Design\plugins\bower_components\morrisjs\spec\lib\parse_time_spec.coffee" />
+    <Content Include="Design\plugins\bower_components\morrisjs\spec\support\placeholder.coffee" />
+    <Content Include="Design\plugins\bower_components\morrisjs\spec\viz\run.sh" />
+    <Content Include="Design\plugins\bower_components\raphael\.bower.json" />
+    <Content Include="Design\plugins\bower_components\raphael\bower.json" />
+    <Content Include="Design\plugins\bower_components\sidebar-nav\.bower.json" />
+    <Content Include="Design\plugins\bower_components\sidebar-nav\bower.json" />
+    <Content Include="Design\plugins\bower_components\sidebar-nav\LICENSE" />
+    <Content Include="Design\plugins\bower_components\sidebar-nav\package.json" />
+    <Content Include="Design\plugins\bower_components\sidebar-nav\README.md" />
+    <Content Include="Design\login\css\style.css.map" />
+    <Content Include="Design\login\fonts\material-icon\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="Design\login\fonts\material-icon\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="Design\login\fonts\material-icon\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="Design\login\fonts\material-icon\fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-300.eot" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-300.ttf" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-300.woff" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-300.woff2" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-300italic.eot" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-300italic.ttf" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-300italic.woff" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-300italic.woff2" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-500.eot" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-500.ttf" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-500.woff" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-500.woff2" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-500italic.eot" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-500italic.ttf" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-500italic.woff" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-500italic.woff2" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-600.eot" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-600.ttf" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-600.woff" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-600.woff2" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-700.eot" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-700.ttf" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-700.woff" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-700.woff2" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-700italic.eot" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-700italic.ttf" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-700italic.woff" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-700italic.woff2" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-800.eot" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-800.ttf" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-800.woff" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-800.woff2" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-800italic.eot" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-800italic.ttf" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-800italic.woff" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-800italic.woff2" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-900.eot" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-900.ttf" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-900.woff" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-900.woff2" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-italic.eot" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-italic.ttf" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-italic.woff" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-italic.woff2" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-regular.eot" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-regular.ttf" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-regular.woff" />
+    <Content Include="Design\login\fonts\poppins\poppins-v5-latin-regular.woff2" />
+    <Content Include="Design\login\fonts\poppins\roboto-condensed-v16-latin-700.eot" />
+    <Content Include="Design\login\fonts\poppins\roboto-condensed-v16-latin-700.ttf" />
+    <Content Include="Design\login\fonts\poppins\roboto-condensed-v16-latin-700.woff" />
+    <Content Include="Design\login\fonts\poppins\roboto-condensed-v16-latin-700.woff2" />
+    <Content Include="Design\login\fonts\poppins\roboto-condensed-v16-latin-700italic.eot" />
+    <Content Include="Design\login\fonts\poppins\roboto-condensed-v16-latin-700italic.ttf" />
+    <Content Include="Design\login\fonts\poppins\roboto-condensed-v16-latin-700italic.woff" />
+    <Content Include="Design\login\fonts\poppins\roboto-condensed-v16-latin-700italic.woff2" />
+    <Content Include="Design\login\fonts\poppins\roboto-condensed-v16-latin-italic.eot" />
+    <Content Include="Design\login\fonts\poppins\roboto-condensed-v16-latin-italic.ttf" />
+    <Content Include="Design\login\fonts\poppins\roboto-condensed-v16-latin-italic.woff" />
+    <Content Include="Design\login\fonts\poppins\roboto-condensed-v16-latin-italic.woff2" />
+    <Content Include="Design\login\fonts\poppins\roboto-condensed-v16-latin-regular.eot" />
+    <Content Include="Design\login\fonts\poppins\roboto-condensed-v16-latin-regular.ttf" />
+    <Content Include="Design\login\fonts\poppins\roboto-condensed-v16-latin-regular.woff" />
+    <Content Include="Design\login\fonts\poppins\roboto-condensed-v16-latin-regular.woff2" />
+    <Content Include="Design\login\scss\common\extend.scss" />
+    <Content Include="Design\login\scss\common\fonts.scss" />
+    <Content Include="Design\login\scss\common\global.scss" />
+    <Content Include="Design\login\scss\common\minxi.scss" />
+    <Content Include="Design\login\scss\common\variables.scss" />
+    <Content Include="Design\login\scss\layouts\main.scss" />
+    <Content Include="Design\login\scss\layouts\responsive.scss" />
+    <Content Include="Design\login\scss\style.scss" />
+    <Content Include="libman.json" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\less\core.less" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\less\list.less" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\less\path.less" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="Design\comingsoon\fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="Design\comingsoon\fonts\Lato\Lato-Black.ttf" />
+    <Content Include="Design\comingsoon\fonts\Lato\Lato-BlackItalic.ttf" />
+    <Content Include="Design\comingsoon\fonts\Lato\Lato-Bold.ttf" />
+    <Content Include="Design\comingsoon\fonts\Lato\Lato-BoldItalic.ttf" />
+    <Content Include="Design\comingsoon\fonts\Lato\Lato-Hairline.ttf" />
+    <Content Include="Design\comingsoon\fonts\Lato\Lato-HairlineItalic.ttf" />
+    <Content Include="Design\comingsoon\fonts\Lato\Lato-Italic.ttf" />
+    <Content Include="Design\comingsoon\fonts\Lato\Lato-Light.ttf" />
+    <Content Include="Design\comingsoon\fonts\Lato\Lato-LightItalic.ttf" />
+    <Content Include="Design\comingsoon\fonts\Lato\Lato-Regular.ttf" />
+    <Content Include="Design\comingsoon\fonts\Poppins\Poppins-Black.ttf" />
+    <Content Include="Design\comingsoon\fonts\Poppins\Poppins-BlackItalic.ttf" />
+    <Content Include="Design\comingsoon\fonts\Poppins\Poppins-Bold.ttf" />
+    <Content Include="Design\comingsoon\fonts\Poppins\Poppins-BoldItalic.ttf" />
+    <Content Include="Design\comingsoon\fonts\Poppins\Poppins-ExtraBold.ttf" />
+    <Content Include="Design\comingsoon\fonts\Poppins\Poppins-ExtraBoldItalic.ttf" />
+    <Content Include="Design\comingsoon\fonts\Poppins\Poppins-ExtraLight.ttf" />
+    <Content Include="Design\comingsoon\fonts\Poppins\Poppins-ExtraLightItalic.ttf" />
+    <Content Include="Design\comingsoon\fonts\Poppins\Poppins-Italic.ttf" />
+    <Content Include="Design\comingsoon\fonts\Poppins\Poppins-Light.ttf" />
+    <Content Include="Design\comingsoon\fonts\Poppins\Poppins-LightItalic.ttf" />
+    <Content Include="Design\comingsoon\fonts\Poppins\Poppins-Medium.ttf" />
+    <Content Include="Design\comingsoon\fonts\Poppins\Poppins-MediumItalic.ttf" />
+    <Content Include="Design\comingsoon\fonts\Poppins\Poppins-Regular.ttf" />
+    <Content Include="Design\comingsoon\fonts\Poppins\Poppins-SemiBold.ttf" />
+    <Content Include="Design\comingsoon\fonts\Poppins\Poppins-SemiBoldItalic.ttf" />
+    <Content Include="Design\comingsoon\fonts\Poppins\Poppins-Thin.ttf" />
+    <Content Include="Design\comingsoon\fonts\Poppins\Poppins-ThinItalic.ttf" />
+    <Content Include="Design\comingsoon\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Design\comingsoon\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Design\comingsoon\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Design\comingsoon\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Design\comingsoon\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Design\comingsoon\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\CustomProfile1.pubxml" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\PhongBan\Index.cshtml" />
+    <Content Include="Views\PhongBan\Create.cshtml" />
+    <Content Include="Views\PhongBan\Edit.cshtml" />
+    <Content Include="Views\PhongBan\Delete.cshtml" />
+    <Content Include="Views\PhongBan\Details.cshtml" />
+    <Content Include="Views\ChucVu\Index.cshtml" />
+    <Content Include="Views\ChucVu\Details.cshtml" />
+    <Content Include="Views\ChucVu\Create.cshtml" />
+    <Content Include="Views\ChucVu\Edit.cshtml" />
+    <Content Include="Views\ChucVu\Delete.cshtml" />
+    <Content Include="Views\NhanVien\Index.cshtml" />
+    <Content Include="Views\NhanVien\Create.cshtml" />
+    <Content Include="Views\NhanVien\Edit.cshtml" />
+    <Content Include="Views\NhanVien\Details.cshtml" />
+    <Content Include="Views\NhanVien_PhongBan\Create.cshtml" />
+    <Content Include="Views\NhanVien\DepartmentEdit.cshtml" />
+    <Content Include="Views\NhanVien\EmployeeEdit.cshtml" />
+    <Content Include="Views\NhanVien\Delete.cshtml" />
+    <Content Include="Views\NhanVien_PhongBan\Login.cshtml" />
+    <Content Include="Views\Shared\AuthorizeFailed.cshtml" />
+    <Content Include="Views\TaiKhoan\Index.cshtml" />
+    <Content Include="Views\NhanVien\DeleteEmployeeInDepartment.cshtml" />
+    <Content Include="Views\TaiKhoan\ChangePassword.cshtml" />
+    <Content Include="Views\Error\PageNotFound.cshtml" />
+    <Content Include="Views\ComingSoon\PageComingSoon.cshtml" />
+    <Content Include="Views\NhanVien\_PartialViewEmployee.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QuanLyNhanVien_WebAPI\QuanLyNhanVien_WebAPI.csproj">
+      <Project>{95181299-11C5-4258-956F-0A8D57B71C9C}</Project>
+      <Name>QuanLyNhanVien_WebAPI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51736</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:51736/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

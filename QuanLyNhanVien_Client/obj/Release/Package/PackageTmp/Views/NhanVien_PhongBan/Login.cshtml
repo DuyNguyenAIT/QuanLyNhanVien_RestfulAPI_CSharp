@@ -1,0 +1,78 @@
+﻿@{
+    Layout = null;
+}
+
+@using QuanLyNhanVien_Client.ViewModel;
+
+@model NhanVien_PhongBanViewModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form by Colorlib</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="~/Design/login/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="~/Design/login/css/style.css">
+</head>
+<body>
+
+    <div style="background-color:#00355F; padding:170px 0px" class="main">
+        <!-- Sing in  Form -->
+        <section class="sign-in">
+            <div class="container">
+                <div class="signin-content">
+                    <div class="signin-image">
+                        <figure><img src="~/Design/login/images/aitlogo.png" alt="sing up image"></figure>
+                        <a href="#" onclick="alert('PLEASE CONTACT ADMIN PAGE!')" class="signup-image-link">Create an account</a>
+                        
+
+                    </div>
+
+                    <div class="signin-form">
+                        <h2 class="form-title">Sign up</h2>
+                        @using (Html.BeginForm("Login", "NhanVien_PhongBan", FormMethod.Post, htmlAttributes: new { @class = "register-form" }))
+                        {
+
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", htmlAttributes: new { @class = "text-danger" })
+
+                            @Html.HiddenFor(x => x.MaNhanVien)
+                            @Html.HiddenFor(x => x.MaPhongBan)
+                            @Html.HiddenFor(x => x.RepeatMatKhau)
+                            @Html.HiddenFor(x => x.MatKhauMoi)
+
+                            <div class="form-group">
+                                <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                @Html.TextBoxFor(x => x.nhanvien_phongbans.TenTaiKhoan, htmlAttributes: new { @class = "form-control form-control-line", @placeholder = "Username" })
+                                @Html.ValidationMessageFor(x => x.nhanvien_phongbans.TenTaiKhoan, "", htmlAttributes: new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
+                                @Html.TextBoxFor(x => x.nhanvien_phongbans.MatKhau, htmlAttributes: new { @class = "form-control form-control-line", @placeholder = "Password", @type = "password" })
+                                @Html.ValidationMessageFor(x => x.nhanvien_phongbans.MatKhau, "", htmlAttributes: new { @class = "text-danger" })
+
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
+                                <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signin" id="signin" class="form-submit" value="Log in" />
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="~/Design/login/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Design/login/js/main.js"></script>
+   
+</body>
+</html>

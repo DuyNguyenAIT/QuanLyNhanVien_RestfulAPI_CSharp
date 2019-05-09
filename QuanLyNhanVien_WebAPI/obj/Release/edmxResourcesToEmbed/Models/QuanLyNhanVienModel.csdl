@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLyNVModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CHUCVU">
+    <Key>
+      <PropertyRef Name="MaChucVu" />
+    </Key>
+    <Property Name="MaChucVu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenChucVu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="NHANVIEN_PHONGBAN" Relationship="Self.FK_CHUCVU_PHONGBAN_NHANVIEN" FromRole="CHUCVU" ToRole="NHANVIEN_PHONGBAN" />
+  </EntityType>
+  <EntityType Name="KHOAKHACH">
+    <Key>
+      <PropertyRef Name="MaKhoaKhach" />
+    </Key>
+    <Property Name="MaKhoaKhach" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaKhach" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MaBiMat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ThoiGianTao" Type="DateTime" Precision="3" />
+    <Property Name="MaNV_PB" Type="Int32" />
+    <NavigationProperty Name="NHANVIEN_PHONGBAN" Relationship="Self.FK_KHOAKHACH_NHANVIEN_PHONGBAN" FromRole="KHOAKHACH" ToRole="NHANVIEN_PHONGBAN" />
+  </EntityType>
+  <EntityType Name="NHANVIEN">
+    <Key>
+      <PropertyRef Name="MaNhanVien" />
+    </Key>
+    <Property Name="MaNhanVien" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HoTen" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GioiTinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="CMND" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="QuocGia" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TonGiao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChiHienTai" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SoDienThoai" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TinhTrangLamViec" Type="Boolean" />
+    <NavigationProperty Name="NHANVIEN_PHONGBAN" Relationship="Self.FK_NHANVIEN_PHONGBAN_NHANVIEN" FromRole="NHANVIEN" ToRole="NHANVIEN_PHONGBAN" />
+  </EntityType>
+  <EntityType Name="NHANVIEN_PHONGBAN">
+    <Key>
+      <PropertyRef Name="MaNV_PB" />
+    </Key>
+    <Property Name="MaNV_PB" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenTaiKhoan" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MatKhau" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="MaNhanVien" Type="Int32" />
+    <Property Name="MaPhongBan" Type="Int32" />
+    <Property Name="MaChucVu" Type="Int32" />
+    <NavigationProperty Name="CHUCVU" Relationship="Self.FK_CHUCVU_PHONGBAN_NHANVIEN" FromRole="NHANVIEN_PHONGBAN" ToRole="CHUCVU" />
+    <NavigationProperty Name="KHOAKHACHes" Relationship="Self.FK_KHOAKHACH_NHANVIEN_PHONGBAN" FromRole="NHANVIEN_PHONGBAN" ToRole="KHOAKHACH" />
+    <NavigationProperty Name="NHANVIEN" Relationship="Self.FK_NHANVIEN_PHONGBAN_NHANVIEN" FromRole="NHANVIEN_PHONGBAN" ToRole="NHANVIEN" />
+    <NavigationProperty Name="PHONGBAN" Relationship="Self.FK_PHONGBAN_PHONGBAN_NHANVIEN" FromRole="NHANVIEN_PHONGBAN" ToRole="PHONGBAN" />
+    <NavigationProperty Name="TOKENs" Relationship="Self.FK_TOKEN_NHANVIEN_PHONGBAN" FromRole="NHANVIEN_PHONGBAN" ToRole="TOKEN" />
+  </EntityType>
+  <EntityType Name="PHONGBAN">
+    <Key>
+      <PropertyRef Name="MaPhongBan" />
+    </Key>
+    <Property Name="MaPhongBan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenPhongBan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SoDienThoai" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="NHANVIEN_PHONGBAN" Relationship="Self.FK_PHONGBAN_PHONGBAN_NHANVIEN" FromRole="PHONGBAN" ToRole="NHANVIEN_PHONGBAN" />
+  </EntityType>
+  <EntityType Name="TOKEN">
+    <Key>
+      <PropertyRef Name="MaToken" />
+    </Key>
+    <Property Name="MaToken" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KhoaToken" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ThoiGianCap" Type="DateTime" Precision="3" />
+    <Property Name="ThoiGianHetHan" Type="DateTime" Precision="3" />
+    <Property Name="ThoiGianTao" Type="DateTime" Precision="3" />
+    <Property Name="MaNV_PB" Type="Int32" />
+    <NavigationProperty Name="NHANVIEN_PHONGBAN" Relationship="Self.FK_TOKEN_NHANVIEN_PHONGBAN" FromRole="TOKEN" ToRole="NHANVIEN_PHONGBAN" />
+  </EntityType>
+  <Association Name="FK_CHUCVU_PHONGBAN_NHANVIEN">
+    <End Role="CHUCVU" Type="Self.CHUCVU" Multiplicity="0..1" />
+    <End Role="NHANVIEN_PHONGBAN" Type="Self.NHANVIEN_PHONGBAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHUCVU">
+        <PropertyRef Name="MaChucVu" />
+      </Principal>
+      <Dependent Role="NHANVIEN_PHONGBAN">
+        <PropertyRef Name="MaChucVu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KHOAKHACH_NHANVIEN_PHONGBAN">
+    <End Role="NHANVIEN_PHONGBAN" Type="Self.NHANVIEN_PHONGBAN" Multiplicity="0..1" />
+    <End Role="KHOAKHACH" Type="Self.KHOAKHACH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN_PHONGBAN">
+        <PropertyRef Name="MaNV_PB" />
+      </Principal>
+      <Dependent Role="KHOAKHACH">
+        <PropertyRef Name="MaNV_PB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NHANVIEN_PHONGBAN_NHANVIEN">
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="0..1" />
+    <End Role="NHANVIEN_PHONGBAN" Type="Self.NHANVIEN_PHONGBAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MaNhanVien" />
+      </Principal>
+      <Dependent Role="NHANVIEN_PHONGBAN">
+        <PropertyRef Name="MaNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PHONGBAN_PHONGBAN_NHANVIEN">
+    <End Role="PHONGBAN" Type="Self.PHONGBAN" Multiplicity="0..1" />
+    <End Role="NHANVIEN_PHONGBAN" Type="Self.NHANVIEN_PHONGBAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHONGBAN">
+        <PropertyRef Name="MaPhongBan" />
+      </Principal>
+      <Dependent Role="NHANVIEN_PHONGBAN">
+        <PropertyRef Name="MaPhongBan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TOKEN_NHANVIEN_PHONGBAN">
+    <End Role="NHANVIEN_PHONGBAN" Type="Self.NHANVIEN_PHONGBAN" Multiplicity="0..1" />
+    <End Role="TOKEN" Type="Self.TOKEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN_PHONGBAN">
+        <PropertyRef Name="MaNV_PB" />
+      </Principal>
+      <Dependent Role="TOKEN">
+        <PropertyRef Name="MaNV_PB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QuanLyNhanVienEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CHUCVUs" EntityType="Self.CHUCVU" />
+    <EntitySet Name="KHOAKHACHes" EntityType="Self.KHOAKHACH" />
+    <EntitySet Name="NHANVIENs" EntityType="Self.NHANVIEN" />
+    <EntitySet Name="NHANVIEN_PHONGBAN" EntityType="Self.NHANVIEN_PHONGBAN" />
+    <EntitySet Name="PHONGBANs" EntityType="Self.PHONGBAN" />
+    <EntitySet Name="TOKENs" EntityType="Self.TOKEN" />
+    <AssociationSet Name="FK_CHUCVU_PHONGBAN_NHANVIEN" Association="Self.FK_CHUCVU_PHONGBAN_NHANVIEN">
+      <End Role="CHUCVU" EntitySet="CHUCVUs" />
+      <End Role="NHANVIEN_PHONGBAN" EntitySet="NHANVIEN_PHONGBAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KHOAKHACH_NHANVIEN_PHONGBAN" Association="Self.FK_KHOAKHACH_NHANVIEN_PHONGBAN">
+      <End Role="NHANVIEN_PHONGBAN" EntitySet="NHANVIEN_PHONGBAN" />
+      <End Role="KHOAKHACH" EntitySet="KHOAKHACHes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NHANVIEN_PHONGBAN_NHANVIEN" Association="Self.FK_NHANVIEN_PHONGBAN_NHANVIEN">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="NHANVIEN_PHONGBAN" EntitySet="NHANVIEN_PHONGBAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PHONGBAN_PHONGBAN_NHANVIEN" Association="Self.FK_PHONGBAN_PHONGBAN_NHANVIEN">
+      <End Role="PHONGBAN" EntitySet="PHONGBANs" />
+      <End Role="NHANVIEN_PHONGBAN" EntitySet="NHANVIEN_PHONGBAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TOKEN_NHANVIEN_PHONGBAN" Association="Self.FK_TOKEN_NHANVIEN_PHONGBAN">
+      <End Role="NHANVIEN_PHONGBAN" EntitySet="NHANVIEN_PHONGBAN" />
+      <End Role="TOKEN" EntitySet="TOKENs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

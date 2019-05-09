@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.539
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuanLyNhanVien_WebAPI", "QuanLyNhanVien_WebAPI\QuanLyNhanVien_WebAPI.csproj", "{95181299-11C5-4258-956F-0A8D57B71C9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuanLyNhanVien_Client", "QuanLyNhanVien_Client\QuanLyNhanVien_Client.csproj", "{28878852-7057-4137-944A-D7056938EA28}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95181299-11C5-4258-956F-0A8D57B71C9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95181299-11C5-4258-956F-0A8D57B71C9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95181299-11C5-4258-956F-0A8D57B71C9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95181299-11C5-4258-956F-0A8D57B71C9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28878852-7057-4137-944A-D7056938EA28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28878852-7057-4137-944A-D7056938EA28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28878852-7057-4137-944A-D7056938EA28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28878852-7057-4137-944A-D7056938EA28}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4B1C946F-797C-4AC7-BABE-4AD63D475B5B}
+	EndGlobalSection
+EndGlobal

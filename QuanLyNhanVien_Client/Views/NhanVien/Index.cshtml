@@ -1,0 +1,134 @@
+﻿
+@using QuanLyNhanVien_Client.Models;
+
+@using PagedList.Mvc;
+
+@model PagedList.IPagedList<NhanVien>
+
+@{
+    var employee = ViewData["OneEmployee"] as NhanVien;
+}
+
+@*@section scripts{
+        <script>
+            $(document).ready(function () {
+                function Contains(t1, t2) {
+                    if (t1.indexOf(t2) != -1)
+                        return true;
+                }
+                $("#Search").keyup(function () {
+                    var searchtext = $("#Search").val().toLowerCase();
+                    $(".Search").each(function () {
+                        if (!Contains($(this).text().toLowerCase(), searchtext)) {
+                            $(this).hide();
+                        }
+                        else {
+                            $(this).show();
+                        }
+                    });
+                });
+            });
+        </script>
+    }*@
+
+<div class="row bg-title">
+    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+        <h4 class="page-title">Employee</h4>
+    </div>
+    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+        <a href="@Url.Action("Create","NhanVien")" target="_blank" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Create employee</a>
+        <a href="@Url.Action("Create","NhanVien_PhongBan")" target="_blank" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Register Account</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="white-box">
+            @using (Html.BeginForm("Index", "NhanVien", FormMethod.Post))
+            {
+            <h3 class="box-title">
+                Employees of departments
+                <div class="col-md-2 col-sm-4 col-xs-12 pull-right">
+                    @Html.DropDownList("MaPhongBan", (IEnumerable<SelectListItem>)ViewBag.DepartmentList, "Select Department", new { @class = "form-control pull-right row b-none", @onchange = "this.form.submit()" })
+                    @Html.ValidationMessageFor(x => x.FirstOrDefault().MaPhongBan, "", htmlAttributes: new { @class = "text-danger" })
+                </div>
+            </h3>
+            }
+
+
+            <div class="table-responsive">
+                <table class="table">
+                    @if (employee != null)
+                    {
+                        <thead>
+                            <tr>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.FirstOrDefault().HoTen)</th>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.FirstOrDefault().GioiTinh)</th>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.FirstOrDefault().NgaySinh)</th>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.FirstOrDefault().CMND)</th>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.FirstOrDefault().QuocGia)</th>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.FirstOrDefault().SoDienThoai)</th>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.FirstOrDefault().Email)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@employee.HoTen</td>
+                                <td>@employee.GioiTinh </td>
+                                <td>@employee.NgaySinh.Value.ToString("MM/dd/yyyy")</td>
+                                <td>@employee.CMND</td>
+                                <td>@employee.QuocGia</td>
+                                <td>@employee.SoDienThoai</td>
+                                <td>@employee.Email</td>
+                                <td>
+                                    @Html.ActionLink("Information", "Details", new { id = employee.MaNhanVien })
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                    else
+                    {
+                        <thead>
+                            <tr>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.FirstOrDefault().HoTen)</th>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.FirstOrDefault().GioiTinh)</th>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.FirstOrDefault().NgaySinh)</th>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.FirstOrDefault().CMND)</th>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.FirstOrDefault().QuocGia)</th>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.FirstOrDefault().SoDienThoai)</th>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.FirstOrDefault().Email)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.HoTen</td>
+                                    <td>@item.GioiTinh </td>
+                                    <td>@item.NgaySinh.Value.ToString("MM/dd/yyyy")</td>
+                                    <td>@item.CMND</td>
+                                    <td>@item.QuocGia</td>
+                                    <td>@item.SoDienThoai</td>
+                                    <td>@item.Email</td>
+                                    <td>
+                                        @Html.ActionLink("Department", "Edit", new { id = item.MaNhanVien }) |
+                                        @Html.ActionLink("Information", "Details", new { id = item.MaNhanVien }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.MaNhanVien }, new { onClick = "return confirm('Are you sure want to delete?');" })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="clear:both"></div>
+
+@if (employee == null)
+{
+  <span>Trang</span> @(Model.PageCount < @Model.PageNumber ? 0 : Model.PageNumber ) @:/ @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "employee" }))
+}

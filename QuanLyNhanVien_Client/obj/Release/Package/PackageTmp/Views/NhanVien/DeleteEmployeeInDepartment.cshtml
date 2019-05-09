@@ -1,0 +1,73 @@
+﻿@model QuanLyNhanVien_Client.ViewModel.NhanVien_PhongBanViewModel
+
+<div class="row bg-title">
+    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+        <h4 class="page-title">Delete</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="white-box">
+            @using (Html.BeginForm("DeleteEmployeeInDepartment", "NhanVien", FormMethod.Post, htmlAttributes: new { @class = "form-horizontal form-material" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                @Html.HiddenFor(x => x.nhanvien_phongbans.MaNV_PB)
+                @Html.HiddenFor(x => x.nhanvien_phongbans.MaNhanVien)
+                @Html.HiddenFor(x => x.nhanvien_phongbans.MaPhongBan)
+                @Html.HiddenFor(x => x.nhanvien_phongbans.MaChucVu)
+
+                <!--ID Department-->
+                <div class="form-group">
+                    @Html.LabelFor(x => x.nhanvien_phongbans.MaNhanVien, htmlAttributes: new { @class = "col-md-12" })
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(x => x.nhanvien_phongbans.MaNhanVien, htmlAttributes: new { @class = "form-control form-control-line", @disabled = "disabled" })
+                        @Html.ValidationMessageFor(x => x.nhanvien_phongbans.MaNhanVien, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <!--Employee name-->
+                <div class="form-group">
+                    @Html.LabelFor(x => x.nhanvien_phongbans.HoTen, htmlAttributes: new { @class = "col-md-12" })
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(x => x.nhanvien_phongbans.HoTen, htmlAttributes: new { @class = "form-control form-control-line", @disabled = "disabled" })
+                        @Html.ValidationMessageFor(x => x.nhanvien_phongbans.HoTen, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <!--Department name-->
+                <div class="form-group">
+                    @Html.LabelFor(x => x.nhanvien_phongbans.TenPhongBan, htmlAttributes: new { @class = "col-md-12" })
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(x => x.nhanvien_phongbans.TenPhongBan, htmlAttributes: new { @class = "form-control form-control-line", @disabled = "disabled" })
+                        @Html.ValidationMessageFor(x => x.nhanvien_phongbans.TenPhongBan, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <!--Position name-->
+                <div class="form-group">
+                    @Html.LabelFor(x => x.nhanvien_phongbans.TenChucVu, htmlAttributes: new { @class = "col-md-12" })
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(x => x.nhanvien_phongbans.TenChucVu, htmlAttributes: new { @class = "form-control form-control-line", @disabled = "disabled" })
+                        @Html.ValidationMessageFor(x => x.nhanvien_phongbans.TenChucVu, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <!--Button-->
+                <div class="form-group">
+                    <div class="col-md-offset-5 col-md-10">
+                        <input type="submit" value="Delete" class="btn btn-success" />
+                    </div>
+                </div>
+            }
+            <!--Back to list-->
+            <div class="form-group">
+                <div class="col-sm-12">
+                    @Html.ActionLink("Back to list", "Index", "NhanVien")
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.row -->

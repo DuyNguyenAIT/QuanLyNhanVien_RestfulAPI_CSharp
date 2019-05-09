@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLyNVModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CHUCVU">
+    <Key>
+      <PropertyRef Name="MaChucVu" />
+    </Key>
+    <Property Name="MaChucVu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenChucVu" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="NHANVIEN">
+    <Key>
+      <PropertyRef Name="MaNhanVien" />
+    </Key>
+    <Property Name="MaNhanVien" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HoTen" Type="nvarchar(max)" />
+    <Property Name="GioiTinh" Type="nvarchar" MaxLength="50" />
+    <Property Name="NgaySinh" Type="date" />
+    <Property Name="CMND" Type="varchar" MaxLength="12" />
+    <Property Name="QuocGia" Type="nvarchar" MaxLength="100" />
+    <Property Name="TonGiao" Type="nvarchar" MaxLength="50" />
+    <Property Name="DiaChiHienTai" Type="nvarchar(max)" />
+    <Property Name="SoDienThoai" Type="varchar" MaxLength="12" />
+    <Property Name="Email" Type="varchar(max)" />
+    <Property Name="NgayTao" Type="date" />
+    <Property Name="TinhTrangLamViec" Type="bit" />
+  </EntityType>
+  <EntityType Name="NHANVIEN_PHONGBAN">
+    <Key>
+      <PropertyRef Name="MaNV_PB" />
+    </Key>
+    <Property Name="MaNV_PB" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenTaiKhoan" Type="varchar" MaxLength="100" />
+    <Property Name="MatKhau" Type="varchar" MaxLength="200" />
+    <Property Name="MaNhanVien" Type="int" />
+    <Property Name="MaPhongBan" Type="int" />
+    <Property Name="MaChucVu" Type="int" />
+  </EntityType>
+  <EntityType Name="PHONGBAN">
+    <Key>
+      <PropertyRef Name="MaPhongBan" />
+    </Key>
+    <Property Name="MaPhongBan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenPhongBan" Type="nvarchar(max)" />
+    <Property Name="SoDienThoai" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK_CHUCVU_PHONGBAN_NHANVIEN">
+    <End Role="CHUCVU" Type="Self.CHUCVU" Multiplicity="0..1" />
+    <End Role="NHANVIEN_PHONGBAN" Type="Self.NHANVIEN_PHONGBAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHUCVU">
+        <PropertyRef Name="MaChucVu" />
+      </Principal>
+      <Dependent Role="NHANVIEN_PHONGBAN">
+        <PropertyRef Name="MaChucVu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NHANVIEN_PHONGBAN_NHANVIEN">
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="0..1" />
+    <End Role="NHANVIEN_PHONGBAN" Type="Self.NHANVIEN_PHONGBAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MaNhanVien" />
+      </Principal>
+      <Dependent Role="NHANVIEN_PHONGBAN">
+        <PropertyRef Name="MaNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PHONGBAN_PHONGBAN_NHANVIEN">
+    <End Role="PHONGBAN" Type="Self.PHONGBAN" Multiplicity="0..1" />
+    <End Role="NHANVIEN_PHONGBAN" Type="Self.NHANVIEN_PHONGBAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHONGBAN">
+        <PropertyRef Name="MaPhongBan" />
+      </Principal>
+      <Dependent Role="NHANVIEN_PHONGBAN">
+        <PropertyRef Name="MaPhongBan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QuanLyNVModelStoreContainer">
+    <EntitySet Name="CHUCVU" EntityType="Self.CHUCVU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NHANVIEN_PHONGBAN" EntityType="Self.NHANVIEN_PHONGBAN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHONGBAN" EntityType="Self.PHONGBAN" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CHUCVU_PHONGBAN_NHANVIEN" Association="Self.FK_CHUCVU_PHONGBAN_NHANVIEN">
+      <End Role="CHUCVU" EntitySet="CHUCVU" />
+      <End Role="NHANVIEN_PHONGBAN" EntitySet="NHANVIEN_PHONGBAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NHANVIEN_PHONGBAN_NHANVIEN" Association="Self.FK_NHANVIEN_PHONGBAN_NHANVIEN">
+      <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+      <End Role="NHANVIEN_PHONGBAN" EntitySet="NHANVIEN_PHONGBAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PHONGBAN_PHONGBAN_NHANVIEN" Association="Self.FK_PHONGBAN_PHONGBAN_NHANVIEN">
+      <End Role="PHONGBAN" EntitySet="PHONGBAN" />
+      <End Role="NHANVIEN_PHONGBAN" EntitySet="NHANVIEN_PHONGBAN" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

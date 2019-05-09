@@ -1,0 +1,72 @@
+﻿@using QuanLyNhanVien_Client.Models;
+
+@model NhanVien_PhongBan
+
+@{ 
+    var accountOfEmployee = ViewData["AccountOfEmployee"] as NhanVien_PhongBan;
+}
+
+<div class="row bg-title">
+    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+        <h4 class="page-title">Account</h4>
+    </div>
+   
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="white-box">
+            <div class="table-responsive">
+                <table class="table">
+                    @if (ViewBag.lstTaiKhoan != null)
+                    {
+                        <thead>
+                            <tr>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.HoTen)</th>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.TenTaiKhoan) </th>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.MatKhau)</th>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.TenPhongBan)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in ViewBag.lstTaiKhoan)
+                            {
+                                <tr>
+                                    <td>@item.HoTen</td>
+                                    <td>@item.TenTaiKhoan</td>
+                                    <td>@item.MatKhau</td>
+                                    <td>@item.TenPhongBan</td>
+                                    <td>
+                                        @Html.ActionLink("Change Password", "ChangePassword", new { id = item.MaNV_PB })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    }
+                    else
+                    {
+                        <thead>
+                            <tr>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.HoTen)</th>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.TenTaiKhoan) </th>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.MatKhau)</th>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.TenPhongBan)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@accountOfEmployee.HoTen</td>
+                                <td>@accountOfEmployee.TenTaiKhoan</td>
+                                <td>@accountOfEmployee.MatKhau</td>
+                                <td>@accountOfEmployee.TenPhongBan</td>
+                                <td>
+                                    @Html.ActionLink("Change Password", "ChangePassword", new { id = accountOfEmployee.MaNV_PB })
+                                </td>
+                            </tr>                            
+                        </tbody>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

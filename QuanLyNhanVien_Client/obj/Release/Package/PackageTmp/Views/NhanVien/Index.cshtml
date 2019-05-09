@@ -1,0 +1,101 @@
+﻿
+@using QuanLyNhanVien_Client.Models;
+
+@model NhanVien
+
+@{
+    var employee = ViewData["OneEmployee"] as NhanVien;    
+}
+
+<div class="row bg-title">
+    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+        <h4 class="page-title">Employee</h4>
+    </div>
+    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+        <a href="@Url.Action("Create","NhanVien")" target="_blank" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Create employee</a>
+        <a href="@Url.Action("Create","NhanVien_PhongBan")" target="_blank" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Register Account</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="white-box">
+            <h3 class="box-title">
+                Recent employees
+                <div class="col-md-2 col-sm-4 col-xs-12 pull-right">
+                    <select class="form-control pull-right row b-none">
+                        <option>March 2016</option>
+                        <option>April 2016</option>
+                        <option>May 2016</option>
+                        <option>June 2016</option>
+                        <option>July 2016</option>
+                    </select>
+                </div>
+            </h3>
+            <div class="table-responsive">
+                <table class="table">
+                    @if (ViewBag.lstNhanViens != null)
+                    {
+                        <thead>
+                            <tr>                                
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.HoTen)</th>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.GioiTinh)</th>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.NgaySinh)</th>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.CMND)</th>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.QuocGia)</th>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.SoDienThoai)</th>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.Email)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in ViewBag.lstNhanViens)
+                            {
+                                <tr>
+                                    <td>@item.HoTen</td>
+                                    <td>@item.GioiTinh </td>
+                                    <td>@item.NgaySinh</td>
+                                    <td>@item.CMND</td>
+                                    <td>@item.QuocGia</td>
+                                    <td>@item.SoDienThoai</td>
+                                    <td>@item.Email</td>
+                                    <td>
+                                        @Html.ActionLink("Department", "Edit", new { id = item.MaNhanVien }) |
+                                        @Html.ActionLink("Information", "Details", new { id = item.MaNhanVien }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.MaNhanVien }, new { onClick = "return confirm('Are you sure want to delete?');" })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    }
+                    else
+                    {
+                        <thead>
+                            <tr>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.HoTen)</th>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.GioiTinh)</th>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.NgaySinh)</th>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.CMND)</th>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.QuocGia)</th>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.SoDienThoai)</th>
+                                <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.Email)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@employee.HoTen</td>
+                                <td>@employee.GioiTinh </td>
+                                <td>@employee.NgaySinh</td>
+                                <td>@employee.CMND</td>
+                                <td>@employee.QuocGia</td>
+                                <td>@employee.SoDienThoai</td>
+                                <td>@employee.Email</td>
+                                <td>
+                                    @Html.ActionLink("Information", "Details", new { id = employee.MaNhanVien })
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

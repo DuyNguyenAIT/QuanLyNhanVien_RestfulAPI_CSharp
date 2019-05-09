@@ -1,0 +1,43 @@
+﻿@using QuanLyNhanVien_Client.Models;
+
+@model IEnumerable<ChucVu>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="row bg-title">
+    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+        <h4 class="page-title">Position</h4>
+    </div>
+    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+        <a href="@Url.Action("Create","ChucVu")" target="_blank" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Create Position</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="white-box">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="font-weight:bold;">@Html.DisplayNameFor(model => model.TenChucVu)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in ViewBag.lstChucVu)
+                        {
+                            <tr>
+                                <td>@item.TenChucVu</td>
+                                <td>
+                                    @Html.ActionLink("Update", "Edit", new { id = item.MaChucVu }) |
+                                    @Html.ActionLink("Information", "Details", new { id = item.MaChucVu }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.MaChucVu }, new { onClick = "return confirm('Are you sure want to delete?');" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
